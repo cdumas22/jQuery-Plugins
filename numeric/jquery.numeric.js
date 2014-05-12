@@ -22,6 +22,7 @@
  * @example  $(".numeric").numeric(","); // use , as separator
  * @example  $(".numeric").numeric({ decimal : "," }); // use , as separator
  * @example  $(".numeric").numeric({ negative : false }); // do not allow negative values
+ * @example  $(".numeric").numeric(callback); // use default values, pass on the 'callback' function
  * @example  $(".numeric").numeric(null, callback); // use default values, pass on the 'callback' function
  *
  */
