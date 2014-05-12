@@ -31,6 +31,10 @@ $.fn.numeric = function(config, callback)
 	{
 		config = { decimal: config };
 	}
+	if(typeof config === 'function') {
+		callback = config;
+		config = {};
+	}
 	config = config || {};
 	// if config.negative undefined, set to true (default is to allow negative numbers)
 	if(typeof config.negative == "undefined") { config.negative = true; }
@@ -41,7 +45,12 @@ $.fn.numeric = function(config, callback)
 	// callback function
 	callback = (typeof(callback) == "function" ? callback : function() {});
 	// set data and methods
-	return this.data("numeric.decimal", decimal).data("numeric.negative", negative).data("numeric.callback", callback).keypress($.fn.numeric.keypress).keyup($.fn.numeric.keyup).blur($.fn.numeric.blur);
+	return this.data("numeric.decimal", decimal)
+		   .data("numeric.negative", negative)
+		   .data("numeric.callback", callback)
+		   .keypress($.fn.numeric.keypress)
+		   .keyup($.fn.numeric.keyup)
+		   .blur($.fn.numeric.blur);
 };
 
 $.fn.numeric.keypress = function(e)
